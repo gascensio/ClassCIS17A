@@ -1,4 +1,3 @@
-//testing
 /*
  * File:   main.cpp
  * Author: Gordon Ascensio
