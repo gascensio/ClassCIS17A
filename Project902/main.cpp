@@ -94,6 +94,10 @@ void printScores(int array[], int size)
 	for(int count = 0; count < size; count++)
 		cout << "node "<< count << " > " << array[count] << endl;
 }
+/********************************************************************
+ * The averageScores computes the average of an array on integers
+ * the array is the size passed to it from the calling funtion
+ */
 float averageScores(int array[], int size)
 {
 	int total = 0;
