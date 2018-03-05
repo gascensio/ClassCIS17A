@@ -96,7 +96,7 @@ void printScores(int array[], int size)
 }
 /********************************************************************
  * The averageScores computes the average of an array on integers
- * the array is the size passed to it from the calling funtion
+ * the array is the size passed to it from the calling function.
  */
 float averageScores(int array[], int size)
 {
