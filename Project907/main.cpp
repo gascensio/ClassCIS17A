@@ -7,7 +7,10 @@
  *   Professor: Mark Lehr
  *        days: MW Time: 12:45p - 2:30
  */
-
+// This program is based on program 9-19 from Starting Out
+// With C++ From Control Structures Through Objects 9th
+// edition.
+//
 // This program shows the donations made to the United Cause
 // by the employees of CK Graphics, Inc. It displays
 // the donations in order from lowest to highest
