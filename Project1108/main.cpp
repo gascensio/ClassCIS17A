@@ -54,10 +54,10 @@ int main()
 												{ "\0", "\0", "\0", "\0", "\0", "\0", 0.0, "\0"},
 												{ "\0", "\0", "\0", "\0", "\0", "\0", 0.0, "\0"},
 												{ "\0", "\0", "\0", "\0", "\0", "\0", 0.0, "\0"}};
-	char ch, *str;
+	char ch, *str = new char[32];
 	int newaccindex = 0;
 	int accnumber;
-        
+
 
 	while(toupper(ch) != 'Q'){
 		cout << "MENU" << endl;
@@ -83,7 +83,7 @@ int main()
 		}else if(toupper(ch) == 'D'){
                     cout << "Search for name? ";
                     getline(str);
-                   FindAccount(Accounts[], NUMBER_OF_CUSTOMER, str);
+                   FindAccount(Accounts, NUMBER_OF_CUSTOMER, str);
                 }
 		cin.ignore();
 	}
@@ -163,13 +163,13 @@ void getline(char *line)
 }
 void FindAccount(Customer Accounts[], int size, char *str)
 {
-    int i;
+    int i = 0;
     bool found = false;
-    
+
     if(strcmp(Accounts[i].name, str) == 0){
         found = true;
     }
-    while(strcmp(Accounts[i].name, str) != 0){
+    while(strcmp(Accounts[i].name, str) != 0 && i < size){
         i++;
         if(strcmp(Accounts[i].name, str) == 0){
             found = true;
@@ -177,4 +177,6 @@ void FindAccount(Customer Accounts[], int size, char *str)
     }
     if (found == true)
         PrintAccount(Accounts[i]);
+    else
+    	cout << "Can't Find Account";
 }
