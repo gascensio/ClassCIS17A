@@ -1,49 +1,60 @@
 /*
- * main.cpp
- *
- *  Created on: Mar 17, 2018
+ *  Created on: Mar 25, 2018
  *      Author: Gordon Ascensio
  *       Class: CIS 17A
  *   Professor: Mark Lehr
  *        Days: MW Time: 12:45p - 2:30
- * 	   Purpose: Moving data with structures
+ * 	   Purpose: String length.
  */
-// Include header files
+
 #include <iostream>
 #include <iomanip>
+#include <cstring>
+
 using namespace std;
 
-// Constant Definitions
-const int LINE = 40;
+const int MAXLINE = 80;
 
-// Structures and global declarations
-struct MovieData {
-	char title[LINE];
-	char director[LINE];
-	int year;
-	int langth;
-};
-// Function prototypes
-void DisplayMovieDat(MovieData Movie);
+int stringlength(char *);
+void getline(char *);
 
-int main(int argc, char** argv) 
+int main()
 {
-	MovieData Movie1 = {"Diamonds Are Forever","Guy Hamilton", 1971, 120};
-	MovieData Movie2 = {"The Right Stuff","Philip Kaufman", 1983, 192};
+	char *cstr = new char[MAXLINE]; // C-String to be checked
 
-	DisplayMovieDat(Movie1);
-	cout << endl;
-	DisplayMovieDat(Movie2);
+	cout << "Enter C-string? ";
+	getline(cstr);
+
+	cout << endl << "The length of the C-string is " << stringlength(cstr);
+
+	delete cstr;
+	return 0;
 
 }
-void DisplayMovieDat(MovieData Movie)
+/**********************************************************
+ *  Returns length of cstring str.
+ */
+int stringlength(char *str)
 {
-	const int TABOVER = 20;
-	cout << right << setw(TABOVER)<< "Title: " << Movie.title << endl;
-	cout << setw(TABOVER) << "Director: " << Movie.director << endl;
-	cout << setw(TABOVER) << "Year Released: " << Movie.year << endl;
-	cout << setw(TABOVER) << "Running Time: " << Movie.langth << " minutes." << endl;
-	return;
+	int length = 0;
+
+	while(str[length] != '\0')
+		length++;
+
+	return length;
+}
+/*********************************************************
+ * gets a Cstring from stdio.
+ *
+ */
+void getline(char *str)
+{
+	int index = 0;
+
+	*str = cin.get();
+	while(*(str+index) != '\n')
+		*(str+(++index)) = cin.get();
+	*(str+index) = '\0';
 }
 
 
